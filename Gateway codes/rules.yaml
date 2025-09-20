@@ -1,0 +1,27 @@
+# rules.yaml
+# Configuration file for the SETU Gateway Node's autonomous alerting engine.
+#
+# Each item in the 'rules' list defines a condition that will trigger an alert.
+# The DataProcessingThread loads this file at startup.
+#
+# Placeholders in 'alert_message':
+#   {node}: Will be replaced with the node_id.
+#   {value}: Will be replaced with the actual value that triggered the alert.
+#   {threshold}: Will be replaced with the threshold value from this file.
+
+rules:
+  - node_id: 1
+    field_to_monitor: "bin_3_cycles"
+    threshold: 10000
+    alert_message: "CRITICAL FATIGUE on Node {node}: High-stress cycle count is {value}, exceeding threshold of {threshold}."
+
+  - node_id: 2
+    field_to_monitor: "bin_3_cycles"
+    threshold: 15000
+    alert_message: "CRITICAL FATIGUE on Node {node}: High-stress cycle count is {value}, exceeding threshold of {threshold}."
+
+  # Example of a rule for a different bin
+  - node_id: 1
+    field_to_monitor: "bin_2_cycles"
+    threshold: 50000
+    alert_message: "WARNING on Node {node}: Medium-stress cycle count is {value}, exceeding threshold of {threshold}."

@@ -1,0 +1,7 @@
+# requirements.txt
+RPi.GPIO
+spidev
+PyYAML
+pyserial
+LoRaRF
+circuitpython-nrf24l01
